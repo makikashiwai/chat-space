@@ -1,0 +1,33 @@
+.main-chat
+  .main-chat__group-info
+    .main-chat__group-info__left-box
+      %h2.main-chat__group-info__left-box__current-group<aaa
+      %ul.main-chat__group-info__left-box__member-list
+        Member : maki
+    = link_to "#", class:"edit-btn" do
+      .main-chat__group-info__edit-btn<Edit
+  .main-chat__message-list
+    .main-chat__message-list__massage
+      .main-chat__message-list__massage__upper-info
+        %p.main-chat__message-list__massage__upper-info__talker
+          maki
+        %p.main-chat__message-list__massage__upper-info__date
+          2020202
+      %p.main-chat__message-list__massage__text
+        aaaaaa
+      .main-chat__message-list__massage__upper-info
+        %p.main-chat__message-list__massage__upper-info__talker
+          maki
+        %p.main-chat__message-list__massage__upper-info__date
+          2020202
+      %p.main-chat__message-list__massage__text
+        aaaaaa
+  .main-chat__message-form
+    .main-chat__message-form__new-message
+      .input-box
+        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "input-box__image__file"}
+      %input{type: "submit", class: "submit-btn"}
+      

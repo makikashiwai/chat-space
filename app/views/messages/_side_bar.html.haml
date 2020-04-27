@@ -1,0 +1,18 @@
+.side-bar
+  .side-bar__top
+    .side-bar__top__items
+      %p.side-bar__top__items__name<maki
+      %ul.side-bar__top__items__icons
+        %li.side-bar__top__items__icons__new-group<
+          = link_to "#" do
+            =icon('fa', 'edit')
+        %li.side-bar__top__items__icons__edit-user<
+          = link_to "#" do
+            =icon('fa', 'cog')
+  .side-bar__group-lists
+    = link_to "#", class:"list" do
+      %p.side-bar__group-lists__list__group-name<techcamp
+      %p.side-bar__group-lists__list__latest-message<まだメッセージがありません
+    = link_to "#", class:"list" do
+      %p.side-bar__group-lists__list__group-name<techcamp
+      %p.side-bar__group-lists__list__latest-message<まだメッセージがありません
