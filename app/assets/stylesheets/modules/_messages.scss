@@ -108,7 +108,7 @@
     padding: 46px 40px;
     &__massage {
       padding-bottom: 40px;
-      &__upper-info{
+      &__upper-info {
         display: flex;
         margin-bottom: 10px;
         &__talker {
@@ -136,7 +136,6 @@
     &__new-message {
       display: flex;
       .input-box {
-        display: flex;
         width: 100%;
         position: relative;
         &__text {

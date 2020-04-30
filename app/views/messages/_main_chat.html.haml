@@ -1,33 +1,33 @@
 .main-chat
   .main-chat__group-info
     .main-chat__group-info__left-box
-      %h2.main-chat__group-info__left-box__current-group<aaa
+      %h2.main-chat__group-info__left-box__current-group
+        = @group.name
       %ul.main-chat__group-info__left-box__member-list
-        Member : maki
-    = link_to "#", class:"edit-btn" do
+        Member : 
+        %li.main-chat__group-info__left-box__member-list__member
+          - @group.users.each do |user|
+            = user.name
+    = link_to edit_group_path(@group), class:"edit-btn" do
       .main-chat__group-info__edit-btn<Edit
   .main-chat__message-list
     .main-chat__message-list__massage
-      .main-chat__message-list__massage__upper-info
-        %p.main-chat__message-list__massage__upper-info__talker
-          maki
-        %p.main-chat__message-list__massage__upper-info__date
-          2020202
-      %p.main-chat__message-list__massage__text
-        aaaaaa
-      .main-chat__message-list__massage__upper-info
-        %p.main-chat__message-list__massage__upper-info__talker
-          maki
-        %p.main-chat__message-list__massage__upper-info__date
-          2020202
-      %p.main-chat__message-list__massage__text
-        aaaaaa
+      = render @messages
+      -#  .main-chat__message-list__massage__upper-info
+      -#   %p.main-chat__message-list__massage__upper-info__talker
+      -#     = message.user.name
+      -#   %p.main-chat__message-list__massage__upper-info__date
+      -#     = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      -# %p.main-chat__message-list__massage__text
+      -#   - if message.content.present?
+      -#     = message.content
+      -#   = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
   .main-chat__message-form
-    .main-chat__message-form__new-message
-      .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", class: "submit-btn"}
-      
+    = form_for [@group, @message] do |f|
+      .main-chat__message-form__new-message
+        .input-box
+          = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+          = f.label :image, class: 'input-box__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'input-box__image__file'
+        = f.submit 'Send', class: 'submit-btn'
