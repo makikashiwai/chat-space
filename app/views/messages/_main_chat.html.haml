@@ -11,17 +11,8 @@
     = link_to edit_group_path(@group), class:"edit-btn" do
       .main-chat__group-info__edit-btn<Edit
   .main-chat__message-list
-    .main-chat__message-list__massage
-      = render @messages
-      -#  .main-chat__message-list__massage__upper-info
-      -#   %p.main-chat__message-list__massage__upper-info__talker
-      -#     = message.user.name
-      -#   %p.main-chat__message-list__massage__upper-info__date
-      -#     = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-      -# %p.main-chat__message-list__massage__text
-      -#   - if message.content.present?
-      -#     = message.content
-      -#   = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+    = render @messages
+ 
   .main-chat__message-form
     = form_for [@group, @message] do |f|
       .main-chat__message-form__new-message
